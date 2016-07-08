@@ -1,0 +1,27 @@
+<div class="col-md-12">
+    <h2>{{product.name}}</h2>
+</div>
+<div class="row col-md-12">
+    <div class="col-md-3">
+        <img src="images/products/{{product.image}}">
+    </div>
+    <div class="col-md-9">
+        <div class="row spacer"></div>
+        <div class="row">
+            <p class="col-md-12">{{product.description}}</p>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-right">
+                <span class="price">{{ product.price | currency:'USD':ture }}</span>
+            </div>
+        </div>
+        <div class="row spacer"></div>
+        <div class="row text-right">
+            <button class="btn btn-primary" (click)="toProductDetail(product.id)">Detail</button><button class="btn btn-primary" ng-click="ShoppingCart.addItem(product)">Add to Cart</button>
+        </div>
+    </div>
+</div>
+<!--
+<div class="row col-md-12">
+    <product-panel [product]="product"></product-panel>
+</div>-->

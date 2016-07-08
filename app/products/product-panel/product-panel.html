@@ -1,0 +1,40 @@
+<ul class="nav nav-tabs">
+    <li [ngClass]="{active:isSelected(1)}">
+        <a href (click)="selectTab(1,$event)">Description</a>
+    </li>
+    <li [ngClass]="{active:isSelected(2)}">
+        <a href (click)="selectTab(2,$event)">Specification</a>
+    </li>
+    <li [ngClass]="{active:isSelected(3)}">
+        <a href (click)="selectTab(3,$event)">Review</a>
+    </li>
+</ul>
+<div class="panel spacer-top" [hidden]="!(tab===1)">
+    <h4>Description</h4>
+    <blockquote>{{product.description}}</blockquote>
+</div>
+<div class="panel spacer-top" [hidden]="!(tab===2)">
+    <h4>Specification</h4>
+    <blockquote>
+        <table class="table table-striped">
+            <tr *ngFor="let spec of product.specification">
+                <td>{{spec.name}}</td><td>{{spec.value}}</td>
+            </tr>
+        </table>
+    </blockquote>
+</div>
+<div class="panel spacer-top col-md-8" [hidden]="!(tab===3)">
+    <h4>Review</h4>
+    <!--<blockquote ng-repeat="review in product.reviews">
+        <div>
+            <span class="glyphicon" ng-class="review.stars >= 1 ? 'glyphicon-star font-yellow':'glyphicon-star-empty'"></span>
+            <span class="glyphicon" ng-class="review.stars >= 2 ? 'glyphicon-star font-yellow':'glyphicon-star-empty'"></span>
+            <span class="glyphicon" ng-class="review.stars >= 3 ? 'glyphicon-star font-yellow':'glyphicon-star-empty'"></span>
+            <span class="glyphicon" ng-class="review.stars >= 4 ? 'glyphicon-star font-yellow':'glyphicon-star-empty'"></span>
+            <span class="glyphicon" ng-class="review.stars >= 5 ? 'glyphicon-star font-yellow':'glyphicon-star-empty'"></span>
+        </div>
+        <p>{{review.comment}}</p>
+        <cite>by: {{review.author}}</cite>
+    </blockquote>
+    <review-form product="product"></review-form>-->
+</div>
